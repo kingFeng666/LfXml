@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<beans>
+    <bean name="memberController" class="com.xzy.goods.controller.MemberController">
+        <properties>
+            <property name="memberService01" bean="memberService"/>
+            <property name="vipNumber" value="1008610010"/>
+        </properties>
+    </bean>
+
+    <bean name="goodsController" class="com.xzy.goods.controller.GoodsController">
+        <properties>
+            <property name="goodsService" bean="goodsService"/>
+        </properties>
+    </bean>
+
+    <bean name="memberService" class="com.xzy.goods.service.MemberService"/>
+    <bean name="goodsService" class="com.xzy.goods.service.GoodsService">
+        <properties>
+            <property name="goodsDao" bean="goodsDao"/>
+            <property name="memberDao" bean="memberDao"/>
+        </properties>
+    </bean>
+
+    <bean name="memberDao" class="com.xzy.goods.dao.MemberDao"/>
+    <bean name="goodsDao" class="com.xzy.goods.dao.GoodsDao"/>
+</beans>
